@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dadata-site-finder"
+version = "0.1.0"
+description = "Conservative LLM-assisted official-site discovery by Russian INN"
+requires-python = ">=3.10"
+dependencies = [
+  "httpx>=0.27,<1",
+  "pydantic>=2.7,<3",
+  "python-dotenv>=1,<2",
+  "tldextract>=5,<6",
+]
+
+[project.scripts]
+site-finder = "site_finder.app:main"
+
+[tool.setuptools.packages.find]
+include = ["site_finder*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
